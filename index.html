@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sassimus Prime's Sports Edit Wheel</title>
+  <title>Sassi Joe's Sports Edit Wheel</title>
   <style>
     body {
       font-family: sans-serif;
@@ -42,7 +42,7 @@
   justify-content: center;
 }
 .segment span {
-  transform: rotate(-22.5deg); /* counter-rotate for readability */
+  transform: rotate(-22.5deg);
   font-size: 14px;
   font-weight: bold;
   color: #000;
@@ -70,30 +70,14 @@
   <div id="pointer"></div>
   <div id="wheel">
     <!-- 8 segments -->
-    <div class="segment" style="transform: rotate(0deg);">
-      <span>Tyreek Hill</span>
-    </div>
-    <div class="segment" style="transform: rotate(45deg);">
-      <span>Miami Dolphins</span>
-    </div>
-    <div class="segment" style="transform: rotate(90deg);">
-      <span>Tua Tagovailoa</span>
-    </div>
-    <div class="segment" style="transform: rotate(135deg);">
-      <span>Dwayne Wade</span>
-    </div>
-    <div class="segment" style="transform: rotate(180deg);">
-      <span>Dan Marino</span>
-    </div>
-    <div class="segment" style="transform: rotate(225deg);">
-      <span>Florida Panthers</span>
-    </div>
-    <div class="segment" style="transform: rotate(270deg);">
-      <span>Bam Adebayo</span>
-    </div>
-    <div class="segment" style="transform: rotate(315deg);">
-      <span>Cam Ward</span>
-    </div>
+    <div class="segment" style="transform: rotate(0deg);"><span>Tyreek Hill</span></div>
+    <div class="segment" style="transform: rotate(45deg);"><span>Miami Dolphins</span></div>
+    <div class="segment" style="transform: rotate(90deg);"><span>Tua Tagovailoa</span></div>
+    <div class="segment" style="transform: rotate(135deg);"><span>Dwayne Wade</span></div>
+    <div class="segment" style="transform: rotate(180deg);"><span>Dan Marino</span></div>
+    <div class="segment" style="transform: rotate(225deg);"><span>Florida Panthers</span></div>
+    <div class="segment" style="transform: rotate(270deg);"><span>Bam Adebayo</span></div>
+    <div class="segment" style="transform: rotate(315deg);"><span>Cam Ward</span></div>
   </div>
 
   <button onclick="spinWheel()">Spin</button>
@@ -101,7 +85,7 @@
   <script>
     function spinWheel() {
       const wheel = document.getElementById('wheel');
-      const randomDeg = Math.floor(Math.random() * 360) + 1440; // 4 full spins + random
+      const randomDeg = Math.floor(Math.random() * 360) + 1440;
       wheel.style.transform = `rotate(${randomDeg}deg)`;
     }
   </script>
