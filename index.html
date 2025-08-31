@@ -30,46 +30,47 @@
       transform: rotate(0deg);
       transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
     }
-.segment {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  transform-origin: 100% 100%;
-  clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.segment span {
-  transform: rotate(-22.5deg);
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
-  pointer-events: none;
-  width: 80px;
-  text-align: center;
-}
-.segment:nth-child(odd) {
-    background: #e31c79;
-}
-.segment:nth-child(even) {
+  .segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: conic-gradient(from calc(var(--i) * 45deg), 0deg 45deg);
+    transform: rotate(calc(var(--i) * 45deg));
+    transform-origin: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .segment span {
+    transform: rotate(calc(-1 * var(--i) * 45deg));
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    width: 80px;
+    text-align: center;
+    pointer-events: none;
+  }
+  .segment:nth-child(odd) {
+      background: #e31c79;
+  }
+  .segment:nth-child(even) {
     background: #66ccff;
-}
-    #pointer {
-      width: 0;
-      height: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-bottom: 30px solid #333;
-      margin: 0 auto;
-      position: relative;
-      top: -20px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
+  }
+  #pointer {
+     width: 0;
+     height: 0;
+     border-left: 20px solid transparent;
+     border-right: 20px solid transparent;
+     border-bottom: 30px solid #333;
+     margin: 0 auto;
+     position: relative;
+     top: -20px;
+  }
+  button {
+     padding: 10px 20px;
+     font-size: 16px;
+     margin-top: 20px;
+  }
   </style>
 </head>
 <body>
@@ -77,14 +78,14 @@
   <div id="pointer"></div>
   <div id="wheel">
     <!-- 8 segments -->
-    <div class="segment" style="transform: rotate(0deg);"><span>Tyreek Hill</span></div>
-    <div class="segment" style="transform: rotate(45deg);"><span>Miami Dolphins</span></div>
-    <div class="segment" style="transform: rotate(90deg);"><span>Tua Tagovailoa</span></div>
-    <div class="segment" style="transform: rotate(135deg);"><span>Dwayne Wade</span></div>
-    <div class="segment" style="transform: rotate(180deg);"><span>Dan Marino</span></div>
-    <div class="segment" style="transform: rotate(225deg);"><span>Florida Panthers</span></div>
-    <div class="segment" style="transform: rotate(270deg);"><span>Bam Adebayo</span></div>
-    <div class="segment" style="transform: rotate(315deg);"><span>Cam Ward</span></div>
+    <div class="segment" style="--i:0"><span>Tyreek Hill</span></div>
+    <div class="segment" style="--i:1"><span>Miami Dolphins</span></div>
+    <div class="segment" style="--i:2"><span>Tua Tagovailoa</span></div>
+    <div class="segment" style="--i:3"><span>Dwayne Wade</span></div>
+    <div class="segment" style="--i:4"><span>Dan Marino</span></div>
+    <div class="segment" style="--i:5"><span>Florida Panthers</span></div>
+    <div class="segment" style="--i:6"><span>Bam Adebayo</span></div>
+    <div class="segment" style="--i:7"><span>Cam Ward</span></div>
   </div>
 
   <button onclick="spinWheel()">Spin</button>
