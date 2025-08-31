@@ -18,6 +18,7 @@
       width: 400px;
       height: 400px;
       margin: 50px auto;
+      overflow: visible;
     }
    svg {
       width: 100%;
@@ -53,7 +54,6 @@
   </style>
 </head>
 <body>
-
   <div id="pointer"></div>
   <div id="wheel-container">
     <svg id="wheel" viewBox="0 0 400 400">
@@ -66,8 +66,7 @@
 
   <script>
     const labels = [
-      "Tyreek Hill", "Tua Tagovailoa", "Dan Marino", "Dwayne Wade",
-      "Matthew Tkachuk", "Cam Ward", "Ray Lewis", "Ed Reed"
+      "Tyreek Hill", "Tua Tagovailoa", "Dan Marino", "Dwayne Wade", "Matthew Tkachuk", "Cam Ward", "Ray Lewis", "Ed Reed"
     ];
 
     const segmentGroup = document.getElementById("segments");
