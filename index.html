@@ -27,7 +27,6 @@
       border: 10px solid #333;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       transform: rotate(0deg);
       transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
     }
@@ -47,6 +46,14 @@
   font-weight: bold;
   color: #000;
   pointer-events: none;
+  width: 80px;
+  text-align: center;
+}
+.segment:nth-child(odd) {
+    background: #e31c79;
+}
+.segment:nth-child(even) {
+    background: #66ccff;
 }
     #pointer {
       width: 0;
