@@ -20,42 +20,48 @@
       margin: 50px auto;
     }
     #wheel {
-      margin: 0 auto;
+      position: relative;
       width: 300px;
       height: 300px;
       border-radius: 50%;
       border: 8px solid #333;
-      position: relative;
+      margin: 50px auto;
       overflow: hidden;
       transform: rotate(0deg);
       transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
     }
-  .segment {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background: hsl(calc(var(--i) * 45), 80%, 70%);
-    transform: rotate(calc(var(--i) * 45deg));
-    transform-origin: 100% 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .segment span {
-    transform: rotate(calc(-1 * var(--i) * 45deg));
-    font-size: 14px;
-    font-weight: bold;
-    color: #000;
-    width: 80px;
-    text-align: center;
-    pointer-events: none;
-  }
-  .segment:nth-child(odd) {
+    .segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      top: 50%;
+      left: 50%;
+      background: hsl(calc(var(--i) * 45), 80%, 70%);
+      transform: rotate(calc(var(--i) * 45deg));
+      transform-origin: 0% 0%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .segment span {
+      position: absolute;
+      top: 60%;
+      left: 60%;
+      transform: rotate(calc(-1 * var(--i) * 45deg)) skewY(45deg);
+      transform-origin: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      width: 80px;
+      text-align: center;
+      pointer-events: none;
+    }
+    .segment:nth-child(odd) {
       background: #e31c79;
-  }
-  .segment:nth-child(even) {
-    background: #66ccff;
-  }
+    }
+    .segment:nth-child(even) {
+      background: #66ccff;
+    }
   #pointer {
      width: 0;
      height: 0;
