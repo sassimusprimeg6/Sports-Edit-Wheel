@@ -52,22 +52,64 @@
 <body>
 
   <div id="pointer"></div>
-  <div id="wheel">
-    <div class="segment" style="--i:0"><span>Tyreek Hill</span></div>
-    <div class="segment" style="--i:1"><span>Miami Dolphins</span></div>
-    <div class="segment" style="--i:2"><span>Tua Tagovailoa</span></div>
-    <div class="segment" style="--i:3"><span>Dwayne Wade</span></div>
-    <div class="segment" style="--i:4"><span>Dan Marino</span></div>
-    <div class="segment" style="--i:5"><span>Florida Panthers</span></div>
-    <div class="segment" style="--i:6"><span>Bam Adebayo</span></div>
-    <div class="segment" style="--i:7"><span>Cam Ward</span></div>
+  <div id="wheel-container">
+    <svg id="wheel" viewBox="0 0 400 400">
+      <!-- Generate 8 wedges -->
+      <g id="segments"></g>
+    </svg>
   </div>
 
   <button onclick="spinWheel()">Spin</button>
 
   <script>
+    const labels = [
+      "Prize 1", "Prize 2", "Prize 3", "Prize 4",
+      "Prize 5", "Prize 6", "Prize 7", "Prize 8"
+    ];
+
+    const segmentGroup = document.getElementById("segments");
+    const centerX = 200, centerY = 200, radius = 200;
+    const angleStep = 360 / labels.length;
+
+    labels.forEach((label, i) => {
+      const startAngle = i * angleStep;
+      const endAngle = startAngle + angleStep;
+      const largeArc = angleStep > 180 ? 1 : 0;
+
+      const x1 = centerX + radius * Math.cos(Math.PI * startAngle / 180);
+      const y1 = centerY + radius * Math.sin(Math.PI * startAngle / 180);
+      const x2 = centerX + radius * Math.cos(Math.PI * endAngle / 180);
+      const y2 = centerY + radius * Math.sin(Math.PI * endAngle / 180);
+
+      const pathData = `
+        M ${centerX} ${centerY}
+        L ${x1} ${y1}
+        A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}
+        Z
+      `;
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", pathData);
+      path.setAttribute("fill", `hsl(${i * angleStep}, 80%, 70%)`);
+      path.setAttribute("stroke", "#fff");
+      segmentGroup.appendChild(path);
+
+      // Add label
+      const labelAngle = (startAngle + endAngle) / 2;
+      const labelX = centerX + radius * 0.6 * Math.cos(Math.PI * labelAngle / 180);
+      const labelY = centerY + radius * 0.6 * Math.sin(Math.PI * labelAngle / 180);
+
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", labelX);
+      text.setAttribute("y", labelY);
+      text.setAttribute("class", "label");
+      text.setAttribute("transform", `rotate(${labelAngle}, ${labelX}, ${labelY})`);
+      text.textContent = label;
+      segmentGroup.appendChild(text);
+    });
+
     function spinWheel() {
-      const wheel = document.getElementById('wheel');
+      const wheel = document.getElementById("wheel");
       const randomDeg = Math.floor(Math.random() * 360) + 1440;
       wheel.style.transform = `rotate(${randomDeg}deg)`;
     }
