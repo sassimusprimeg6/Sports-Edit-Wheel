@@ -25,17 +25,23 @@
       transform: rotate(0deg);
       transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
     }
-    .segment {
-      position: absolute;
-      width: 50%;
-      height: 50%;
-      background: #ffcc00;
-      transform-origin: 100% 100%;
-      clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
-    }
-    .segment:nth-child(even) {
-      background: #ff6666;
-    }
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+  clip-path: polygon(100% 100%, 0% 100%, 100% 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.segment span {
+  transform: rotate(-22.5deg); /* counter-rotate for readability */
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  pointer-events: none;
+}
     #pointer {
       width: 0;
       height: 0;
