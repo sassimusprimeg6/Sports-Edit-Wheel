@@ -35,15 +35,15 @@
     }
   #pointer {
     position: absolute;
-    top: -30px;
+    top: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 30px solid black;
-    z-index: 10;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid black;
+    z-index: 1000;
   }
   button {
      padding: 10px 20px;
@@ -53,8 +53,8 @@
   </style>
 </head>
 <body>
-  <div id="pointer"></div>
   <div id="wheel-container">
+    <div id="pointer"></div>
     <svg id="wheel" viewBox="0 0 400 400">
       <!-- Generate 8 wedges -->
       <g id="segments"></g>
