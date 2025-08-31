@@ -34,7 +34,7 @@
     position: absolute;
     width: 50%;
     height: 50%;
-    background: conic-gradient(from calc(var(--i) * 45deg), 0deg 45deg);
+    background: hsl(calc(var(--i) * 45), 80%, 70%);
     transform: rotate(calc(var(--i) * 45deg));
     transform-origin: 100% 100%;
     display: flex;
@@ -77,15 +77,14 @@
 
   <div id="pointer"></div>
   <div id="wheel">
-    <!-- 8 segments -->
-    <div class="segment" style="--i:1"><span>Tyreek Hill</span></div>
-    <div class="segment" style="--i:2"><span>Miami Dolphins</span></div>
-    <div class="segment" style="--i:3"><span>Tua Tagovailoa</span></div>
-    <div class="segment" style="--i:4"><span>Dwayne Wade</span></div>
-    <div class="segment" style="--i:5"><span>Dan Marino</span></div>
-    <div class="segment" style="--i:6"><span>Florida Panthers</span></div>
-    <div class="segment" style="--i:7"><span>Bam Adebayo</span></div>
-    <div class="segment" style="--i:8"><span>Cam Ward</span></div>
+    <div class="segment" style="--i:0"><span>Tyreek Hill</span></div>
+    <div class="segment" style="--i:1"><span>Miami Dolphins</span></div>
+    <div class="segment" style="--i:2"><span>Tua Tagovailoa</span></div>
+    <div class="segment" style="--i:3"><span>Dwayne Wade</span></div>
+    <div class="segment" style="--i:4"><span>Dan Marino</span></div>
+    <div class="segment" style="--i:5"><span>Florida Panthers</span></div>
+    <div class="segment" style="--i:6"><span>Bam Adebayo</span></div>
+    <div class="segment" style="--i:7"><span>Cam Ward</span></div>
   </div>
 
   <button onclick="spinWheel()">Spin</button>
